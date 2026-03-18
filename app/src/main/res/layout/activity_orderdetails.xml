@@ -1,0 +1,148 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TVheader"
+        android:text="Booking Details"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/LLMovieHeader"
+        android:orientation="horizontal"
+        android:layout_below="@id/TVheader"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="120dp"
+            android:id="@+id/IVMoviePoster"
+            android:scaleType="centerCrop"
+            android:background="#333333">
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TVMovieTitle"
+            android:text="Movie Title"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center_vertical">
+
+        </TextView>
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/TVTicketsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tickets"
+            android:textColor="#AAAAAA"
+            android:textSize="14sp"
+            android:layout_below="@id/LLMovieHeader"
+            android:layout_marginTop="30dp">
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/LLTickets"
+            android:orientation="vertical"
+            android:layout_below="@id/TVTicketsTitle"
+            android:layout_marginTop="10dp">
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TVSnacksTitle"
+            android:text="Snacks"
+            android:textColor="#AAAAAA"
+            android:textSize="14sp"
+            android:layout_below="@id/LLTickets"
+            android:layout_marginTop="25dp">
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/LLSnacks"
+            android:orientation="vertical"
+            android:layout_below="@id/TVSnacksTitle"
+            android:layout_marginTop="10dp">
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/Vdivider"
+            android:background="#333333"
+            android:layout_below="@id/LLSnacks"
+            android:layout_marginTop="20dp">
+
+        </View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/LLTotal"
+            android:layout_below="@id/Vdivider"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TOTAL"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TVTotalPrice"
+                android:text="0.00 USD"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold">
+
+            </TextView>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:id="@+id/btnSendTicket"
+            android:text="Send Ticket"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:backgroundTint="#E50914"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp">
+
+        </Button>
+</RelativeLayout>

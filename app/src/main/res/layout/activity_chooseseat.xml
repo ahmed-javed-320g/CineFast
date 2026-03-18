@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#000000"
+    android:padding="20dp">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGoBack"
+        android:layout_width="30dp"
+        android:layout_height="44dp"
+        android:backgroundTint="#40FFFFFF"
+        android:padding="0dp"
+        app:cornerRadius="22dp"
+        android:gravity="center"
+        app:icon="@drawable/ic_arrow_back"
+        app:iconTint="@android:color/white"
+        app:iconSize="24dp" />
+
+
+
+
+    <TextView
+        android:id="@+id/TVMovieTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Movie Name"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:layout_below="@id/btnGoBack"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp">
+
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/topInfoContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/TVMovieTitle"
+        android:layout_marginTop="12dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PG"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:background="@drawable/bg_green_badge"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginEnd="6dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EN"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_dark_badge"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginEnd="6dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ScreenX"
+                android:textSize="13sp"
+                android:textColor="#AAAAAA">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stars (90+Mall)"
+                android:textSize="12sp"
+                android:textColor="#888888"
+                android:layout_marginEnd="12dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1st"
+                android:textSize="12sp"
+                android:textColor="#888888"
+                android:layout_marginEnd="12dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13.04.2025"
+                android:textSize="12sp"
+                android:textColor="#888888"
+                android:layout_marginEnd="12dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="22:15"
+                android:textSize="12sp"
+                android:textColor="#888888">
+
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/IVcurveBar"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_below="@id/topInfoContainer"
+        android:layout_marginTop="22dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/curve_bar">
+
+    </ImageView>
+
+    <GridLayout
+        android:id="@+id/GridSeats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="9"
+        android:layout_below="@id/IVcurveBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp">
+
+    </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/legendLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/GridSeats"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Booked"
+            android:textColor="#888888"
+            android:textSize="13sp"
+            android:drawableStart="@drawable/dot_booked"
+            android:drawablePadding="6dp"
+            android:layout_marginEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Seats"
+            android:textColor="#888888"
+            android:textSize="13sp"
+            android:drawableStart="@drawable/dot_yours"
+            android:drawablePadding="6dp"
+            android:layout_marginEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Available"
+            android:textColor="#888888"
+            android:textSize="13sp"
+            android:drawableStart="@drawable/dot_available"
+            android:drawablePadding="6dp">
+
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LLbuttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:id="@+id/btnbookSeats"
+            android:text="Book Seats"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#E50914"
+            android:layout_marginEnd="8dp">
+
+        </Button>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:id="@+id/btnproceedToSnacks"
+            android:text="Proceed to Snacks"
+            android:textColor="@android:color/black"
+            android:backgroundTint="#FFFFFF"
+            android:layout_marginStart="8dp">
+
+        </Button>
+    </LinearLayout>
+</RelativeLayout>

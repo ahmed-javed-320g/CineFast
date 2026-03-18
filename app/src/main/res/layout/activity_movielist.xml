@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/list"
+    android:background="@color/black"
+    android:padding="20dp"
+    >
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="35dp"
+        android:src="@drawable/logo_header"
+        android:layout_marginTop="10dp"
+        android:id="@+id/IVheader"
+        >
+
+    </ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Date"
+        android:textSize="14sp"
+        android:textColor="#888888"
+        android:id="@+id/tvSelectDate"
+        android:layout_below="@id/IVheader"
+        android:layout_marginTop="25dp">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/LLdatecontainer"
+        android:layout_below="@id/tvSelectDate"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/btnToday"
+            android:backgroundTint="#E50914"
+            android:text="Today"
+            android:textColor="#FFFFFF">
+
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:backgroundTint="#1A1A1A"
+            android:text="Tomorrow"
+            android:id="@+id/btnTomorow"
+            android:textColor="#888888">
+
+        </Button>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Now Showing"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:id="@+id/tvNowShowing"
+        android:layout_below="@id/LLdatecontainer"
+        android:layout_marginTop="25dp"
+        android:textColor="#FFFFFF">
+
+    </TextView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/movieCard1"
+        android:layout_below="@id/tvNowShowing"
+        android:background="@drawable/bg_movie_card"
+        android:layout_marginTop="15dp"
+        android:padding="15dp">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/IVmovie1"
+            android:src="@drawable/batman">
+
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TVmovieTitle1"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/IVmovie1"
+            android:text="The Dark Knight"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TVmovieSubtext1"
+            android:layout_below="@id/TVmovieTitle1"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/IVmovie1"
+            android:text="Action / 152 min"
+            android:textColor="#666666">
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/TVmovieSubtext1"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="75dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:id="@+id/btnBook1"
+                android:backgroundTint="#E50914"
+                android:textSize="11sp"
+                android:text="Book Seats">
+
+            </Button>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:id="@+id/btnTrailer1"
+                android:layout_marginStart="10dp"
+                android:text="Trailer"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#000000"
+                android:textSize="11sp">
+
+            </Button>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/movieCard2"
+        android:layout_below="@id/movieCard1"
+        android:background="@drawable/bg_movie_card"
+        android:layout_marginTop="10dp"
+        android:padding="12dp">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/IVmovie2"
+            android:src="@drawable/inception">
+
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TVmovieTitle2"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/IVmovie2"
+            android:text="Inception"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TVmovieSubtext2"
+            android:layout_below="@id/TVmovieTitle2"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/IVmovie2"
+            android:text="Sci-Fi / 148 min"
+            android:textColor="#666666">
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/TVmovieSubtext2"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="75dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:id="@+id/btnBook2"
+                android:backgroundTint="#E50914"
+                android:textSize="11sp"
+                android:text="Book Seats">
+
+            </Button>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:id="@+id/btnTrailer2"
+                android:layout_marginStart="10dp"
+                android:text="Trailer"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#000000"
+                android:textSize="11sp">
+
+            </Button>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/movieCard3"
+        android:layout_below="@id/movieCard2"
+        android:background="@drawable/bg_movie_card"
+        android:layout_marginTop="15dp"
+        android:padding="15dp">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/IVmovie3"
+            android:src="@drawable/interstellar">
+
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TVmovieTitle3"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/IVmovie3"
+            android:text="Interstellar"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TVmovieSubtext3"
+            android:layout_below="@id/TVmovieTitle3"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/IVmovie3"
+            android:text="Sci-Fi / 169 min"
+            android:textColor="#666666">
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/TVmovieSubtext3"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="75dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:id="@+id/btnBook3"
+                android:backgroundTint="#E50914"
+                android:textSize="11sp"
+                android:text="Book Seats">
+
+            </Button>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:id="@+id/btnTrailer3"
+                android:layout_marginStart="10dp"
+                android:text="Trailer"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#000000"
+                android:textSize="11sp">
+
+            </Button>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/movieCard4"
+        android:layout_below="@id/movieCard3"
+        android:background="@drawable/bg_movie_card"
+        android:layout_marginTop="15dp"
+        android:padding="15dp">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/IVmovie4"
+            android:src="@drawable/the_shawshank_redemption">
+
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TVmovieTitle4"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/IVmovie4"
+            android:text="The Shawshank Redemption"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TVmovieSubtext4"
+            android:layout_below="@id/TVmovieTitle4"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/IVmovie4"
+            android:text="Drama / 142 min"
+            android:textColor="#666666">
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/TVmovieSubtext4"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="75dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:id="@+id/btnBook4"
+                android:backgroundTint="#E50914"
+                android:textSize="11sp"
+                android:text="Book Seats">
+
+            </Button>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:id="@+id/btnTrailer4"
+                android:layout_marginStart="10dp"
+                android:text="Trailer"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#000000"
+                android:textSize="11sp">
+
+            </Button>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
