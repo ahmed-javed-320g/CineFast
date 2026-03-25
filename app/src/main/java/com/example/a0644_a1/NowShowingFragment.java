@@ -24,14 +24,14 @@ public class NowShowingFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ArrayList<Movie> movies = new ArrayList<>();
-        movies.add(new Movie("The Dark Knight", "Action / 152 min", R.drawable.batman,
+        ArrayList<movie> movies = new ArrayList<>();
+        movies.add(new movie("The Dark Knight", "Action / 152 min", R.drawable.batman,
                 "https://www.youtube.com/watch?v=EXeTwQWrcwY", false));
-        movies.add(new Movie("Inception", "Sci-Fi / 148 min", R.drawable.inception,
+        movies.add(new movie("Inception", "Sci-Fi / 148 min", R.drawable.inception,
                 "https://www.youtube.com/watch?v=YoHD9XEInc0", false));
-        movies.add(new Movie("Interstellar", "Sci-Fi / 169 min", R.drawable.interstellar,
+        movies.add(new movie("Interstellar", "Sci-Fi / 169 min", R.drawable.interstellar,
                 "https://www.youtube.com/watch?v=zSWdZVtXT7E", false));
-        movies.add(new Movie("The Shawshank Redemption", "Drama / 142 min",
+        movies.add(new movie("The Shawshank Redemption", "Drama / 142 min",
                 R.drawable.the_shawshank_redemption,
                 "https://www.youtube.com/watch?v=PLl99DlL6b4", false));
 

@@ -10,11 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
 
-public class SnackAdapter extends ArrayAdapter<Snack> {
+public class SnackAdapter extends ArrayAdapter<snack> {
 
     private ArrayList<Integer> quantities;
 
-    public SnackAdapter(Context context, ArrayList<Snack> snacks) {
+    public SnackAdapter(Context context, ArrayList<snack> snacks) {
         super(context, 0, snacks);
         quantities = new ArrayList<>();
         for (int i = 0; i < snacks.size(); i++) quantities.add(0);
@@ -28,7 +28,7 @@ public class SnackAdapter extends ArrayAdapter<Snack> {
             convertView = LayoutInflater.from(getContext())
                     .inflate(R.layout.item_snack, parent, false);
         }
-        Snack snack = getItem(position);
+        snack snack = getItem(position);
         ImageView iv = convertView.findViewById(R.id.IVsnack);
         TextView tvName = convertView.findViewById(R.id.tvSnackName);
         TextView tvPrice = convertView.findViewById(R.id.tvSnackPrice);
