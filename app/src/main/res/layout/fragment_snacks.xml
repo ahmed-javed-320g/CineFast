@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:padding="20dp">
+
+    <ImageView android:id="@+id/IVheader"
+        android:layout_width="140dp" android:layout_height="35dp"
+        android:src="@drawable/logo_header" android:layout_marginTop="10dp"/>
+
+    <TextView android:id="@+id/tvSnacksTitle"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Snacks and Drinks"
+        android:textStyle="bold" android:textSize="20sp" android:textColor="#FFFFFF"
+        android:layout_below="@id/IVheader" android:layout_marginTop="25dp"/>
+
+    <Button android:id="@+id/btnConfirm"
+        android:layout_width="match_parent" android:layout_height="55dp"
+        android:text="Confirm" android:textColor="#FFFFFF"
+        android:backgroundTint="#E50914"
+        android:layout_alignParentBottom="true"/>
+
+    <ListView android:id="@+id/listViewSnacks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tvSnacksTitle"
+        android:layout_above="@id/btnConfirm"
+        android:layout_marginTop="16dp"
+        android:divider="@null"/>
+</RelativeLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_movie_card"
+    android:padding="15dp"
+    android:layout_marginBottom="12dp">
+
+    <ImageView android:id="@+id/IVsnack"
+        android:layout_width="60dp" android:layout_height="60dp"/>
+
+    <TextView android:id="@+id/tvSnackName"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/IVsnack" android:layout_marginStart="15dp"
+        android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="16sp"/>
+
+    <TextView android:id="@+id/tvSnackPrice"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_below="@id/tvSnackName"
+        android:layout_toEndOf="@id/IVsnack" android:layout_marginStart="15dp"
+        android:textColor="#FFFFFF" android:textStyle="bold"/>
+
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true" android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <Button android:id="@+id/btnMinus"
+            android:layout_width="35dp" android:layout_height="35dp"
+            android:text="-" android:textSize="18sp" android:textColor="#FFFFFF"
+            android:background="@drawable/rounded_black_button"/>
+
+        <TextView android:id="@+id/tvQty"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="0" android:textColor="#FFFFFF"
+            android:layout_marginHorizontal="10dp" android:textSize="16sp"/>
+
+        <Button android:id="@+id/btnPlus"
+            android:layout_width="35dp" android:layout_height="35dp"
+            android:text="+" android:textSize="18sp" android:textColor="#FFFFFF"
+            android:background="@drawable/rounded_red_button"/>
+    </LinearLayout>
+</RelativeLayout>

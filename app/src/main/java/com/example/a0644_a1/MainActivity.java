@@ -47,4 +47,20 @@ public class MainActivity extends AppCompatActivity {
         this.currentSelectedSeats = seats;
     }
     public ArrayList<String> getCurrentSelectedSeats() { return currentSelectedSeats; }
+
+    // ADD these fields
+    private ArrayList<String> snackNames;
+    private ArrayList<Double> snackPrices;
+    private ArrayList<Integer> snackQuantities;
+
+    // ADD these methods
+    public void setSnackData(ArrayList<String> names, ArrayList<Double> prices, ArrayList<Integer> qtys) {
+        this.snackNames = names;
+        this.snackPrices = prices;
+        this.snackQuantities = qtys;
+    }
+    public ArrayList<String> getSnackNames() { return snackNames; }
+    public ArrayList<Double> getSnackPrices() { return snackPrices; }
+    public ArrayList<Integer> getSnackQuantities() { return snackQuantities; }
 }
+
