@@ -15,13 +15,13 @@ import java.util.ArrayList;
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
     public interface OnBookClickListener {
-        void onBookClick(Movie movie);
+        void onBookClick(movie movie);
     }
 
-    private ArrayList<Movie> movies;
+    private ArrayList<movie> movies;
     private OnBookClickListener listener;
 
-    public MovieAdapter(ArrayList<Movie> movies, OnBookClickListener listener) {
+    public MovieAdapter(ArrayList<movie> movies, OnBookClickListener listener) {
         this.movies = movies;
         this.listener = listener;
     }
@@ -35,7 +35,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
-        Movie movie = movies.get(position);
+        movie movie = movies.get(position);
         holder.tvTitle.setText(movie.getTitle());
         holder.tvGenre.setText(movie.getGenre());
         holder.ivPoster.setImageResource(movie.getPosterResId());
