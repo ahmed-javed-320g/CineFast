@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme._0644_A1">
         <activity
-            android:name=".splash"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
