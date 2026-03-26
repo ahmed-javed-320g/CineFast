@@ -24,19 +24,33 @@
         android:layout_alignParentEnd="true" android:layout_centerVertical="true"
         android:orientation="horizontal">
 
-        <Button android:id="@+id/btnMinus"
-            android:layout_width="35dp" android:layout_height="35dp"
-            android:text="-" android:textSize="18sp" android:textColor="#FFFFFF"
-            android:background="@drawable/rounded_black_button"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnMinus"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:text="-"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/rounded_black_button"
+            android:gravity="center"
+            android:padding="0dp"/>
 
         <TextView android:id="@+id/tvQty"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:text="0" android:textColor="#FFFFFF"
             android:layout_marginHorizontal="10dp" android:textSize="16sp"/>
 
-        <Button android:id="@+id/btnPlus"
-            android:layout_width="35dp" android:layout_height="35dp"
-            android:text="+" android:textSize="18sp" android:textColor="#FFFFFF"
-            android:background="@drawable/rounded_red_button"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnPlus"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:text="+"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/rounded_red_button"
+            android:gravity="center"
+            android:padding="0dp"/>
     </LinearLayout>
 </RelativeLayout>

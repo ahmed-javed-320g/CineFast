@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private String currentMovieTitle;
     private int currentMovieImage;
     private boolean currentMovieIsComingSoon;
+    private String currentMovieTrailerUrl;
     private ArrayList<String> currentSelectedSeats;
 
     @Override
@@ -20,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
         if (savedInstanceState == null) {
             loadFragment(new HomeFragment(), false);
         }
@@ -33,12 +37,14 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    // Mediator methods for passing data between fragments
-    public void setSelectedMovie(String title, int imageRes, boolean isComingSoon) {
+
+    public void setSelectedMovie(String title, int imageRes, boolean isComingSoon, String trailerUrl) {
         this.currentMovieTitle = title;
         this.currentMovieImage = imageRes;
         this.currentMovieIsComingSoon = isComingSoon;
+        this.currentMovieTrailerUrl = trailerUrl;
     }
+    public String getCurrentMovieTrailerUrl() { return currentMovieTrailerUrl; }
 
     public String getCurrentMovieTitle() { return currentMovieTitle; }
     public int getCurrentMovieImage() { return currentMovieImage; }

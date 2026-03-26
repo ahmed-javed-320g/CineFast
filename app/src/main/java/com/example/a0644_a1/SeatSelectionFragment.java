@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class SeatSelectionFragment extends Fragment {
 
-    private ArrayList<String> selectedSeats = new ArrayList<>();
+    private ArrayList<String> selectedSeats;
 
     @Nullable
     @Override
@@ -32,6 +32,9 @@ public class SeatSelectionFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         MainActivity activity = (MainActivity) requireActivity();
+        ArrayList<String> restored = activity.getCurrentSelectedSeats();
+        selectedSeats = (restored != null) ? new ArrayList<>(restored) : new ArrayList<>();
+
         String title = activity.getCurrentMovieTitle();
         int movieImage = activity.getCurrentMovieImage();
         boolean isComingSoon = activity.isCurrentMovieComingSoon();
@@ -61,12 +64,19 @@ public class SeatSelectionFragment extends Fragment {
                 params.setMargins(8, 8, 8, 8);
                 seat.setLayoutParams(params);
                 int seatIndex = row * cols + col;
+
                 if (seatIndex % 7 == 0) {
                     seat.setImageResource(R.drawable.seat_booked);
                     seat.setTag("booked");
                 } else {
-                    seat.setImageResource(R.drawable.seat_available);
-                    seat.setTag("available");
+                    String seatLabel = "Row " + (row + 1) + " Seat " + (col + 1);
+                    if (selectedSeats.contains(seatLabel)) {
+                        seat.setImageResource(R.drawable.seat_yours);
+                        seat.setTag("yours");
+                    } else {
+                        seat.setImageResource(R.drawable.seat_available);
+                        seat.setTag("available");
+                    }
                 }
 
                 if (!isComingSoon) {
@@ -95,13 +105,19 @@ public class SeatSelectionFragment extends Fragment {
         if (isComingSoon) {
             btnPrimary.setText("Coming Soon");
             btnPrimary.setEnabled(false);
-            btnPrimary.setAlpha(0.5f);
+            btnPrimary.setClickable(false);
+            btnPrimary.setFocusable(false);
+            btnPrimary.setBackgroundTintList(
+                    android.content.res.ColorStateList.valueOf(android.graphics.Color.GRAY));
+            btnPrimary.setTextColor(android.graphics.Color.WHITE);
+            btnPrimary.setAlpha(0.6f);
+
             btnSecondary.setText("Watch Trailer");
             btnSecondary.setBackgroundTintList(
                     android.content.res.ColorStateList.valueOf(android.graphics.Color.WHITE));
             btnSecondary.setTextColor(android.graphics.Color.BLACK);
 
-            String trailerUrl = "https://www.youtube.com/watch?v=zSWdZVtXT7E"; // fallback
+            String trailerUrl = activity.getCurrentMovieTrailerUrl();
             btnSecondary.setOnClickListener(v -> {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(trailerUrl));
                 startActivity(intent);

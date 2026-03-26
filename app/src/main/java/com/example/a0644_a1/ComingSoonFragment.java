@@ -37,7 +37,7 @@ public class ComingSoonFragment extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         rv.setAdapter(new MovieAdapter(movies, movie -> {
             MainActivity activity = (MainActivity) requireActivity();
-            activity.setSelectedMovie(movie.getTitle(), movie.getPosterResId(), true);
+            activity.setSelectedMovie(movie.getTitle(), movie.getPosterResId(), true, movie.getTrailerUrl());
             activity.loadFragment(new SeatSelectionFragment(), true);
         }));
     }

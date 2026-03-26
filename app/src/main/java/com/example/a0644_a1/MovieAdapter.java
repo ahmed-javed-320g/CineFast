@@ -45,7 +45,23 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             v.getContext().startActivity(intent);
         });
 
-        holder.btnBook.setOnClickListener(v -> listener.onBookClick(movie));
+        if (movie.isComingSoon()) {
+            holder.btnBook.setText("Coming Soon");
+            holder.btnBook.setClickable(false);
+            holder.btnBook.setFocusable(false);
+            holder.btnBook.setBackgroundTintList(
+                    android.content.res.ColorStateList.valueOf(android.graphics.Color.GRAY));
+            holder.btnBook.setAlpha(0.6f);
+        } else {
+            holder.btnBook.setText("Book Seats");
+            holder.btnBook.setClickable(true);
+            holder.btnBook.setFocusable(true);
+            holder.btnBook.setBackgroundTintList(
+                    android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#E50914")));
+            holder.btnBook.setAlpha(1.0f);
+            holder.btnBook.setOnClickListener(v -> listener.onBookClick(movie));
+        }
+
     }
 
     @Override

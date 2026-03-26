@@ -33,6 +33,9 @@ public class TicketSummaryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        view.findViewById(R.id.btnGoBack).setOnClickListener(v ->
+                requireActivity().getSupportFragmentManager().popBackStack());
+
         MainActivity activity = (MainActivity) requireActivity();
         String movieTitle = activity.getCurrentMovieTitle();
         int movieImage = activity.getCurrentMovieImage();
