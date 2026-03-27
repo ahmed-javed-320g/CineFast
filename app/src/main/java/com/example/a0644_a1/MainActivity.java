@@ -55,12 +55,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public ArrayList<String> getCurrentSelectedSeats() { return currentSelectedSeats; }
 
-    // ADD these fields
+
     private ArrayList<String> snackNames;
     private ArrayList<Double> snackPrices;
     private ArrayList<Integer> snackQuantities;
-
-    // ADD these methods
     public void setSnackData(ArrayList<String> names, ArrayList<Double> prices, ArrayList<Integer> qtys) {
         this.snackNames = names;
         this.snackPrices = prices;

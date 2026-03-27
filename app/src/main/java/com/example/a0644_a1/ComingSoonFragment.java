@@ -26,12 +26,12 @@ public class ComingSoonFragment extends Fragment {
 
         ArrayList<movie> movies = new ArrayList<>();
         // Use whatever posters/images you have — these are placeholders
-        movies.add(new movie("Dune: Part Three", "Sci-Fi / TBA", R.drawable.interstellar,
-                "https://www.youtube.com/watch?v=zSWdZVtXT7E", true));
-        movies.add(new movie("Avatar 3", "Action / TBA", R.drawable.batman,
-                "https://www.youtube.com/watch?v=EXeTwQWrcwY", true));
-        movies.add(new movie("The Sequel", "Drama / TBA", R.drawable.inception,
-                "https://www.youtube.com/watch?v=YoHD9XEInc0", true));
+        movies.add(new movie("Dune: Part Three", "Sci-Fi / TBA", R.drawable.dune3,
+                "https://www.youtube.com/watch?v=3_9vCamtuPY", true));
+        movies.add(new movie("Project Hail Mary", "Action / TBA", R.drawable.project_hail_mary,
+                "https://www.youtube.com/watch?v=m08TxIsFTRI", true));
+        movies.add(new movie("The RIP", "Drama / TBA", R.drawable.the_rip,
+                "https://www.youtube.com/watch?v=yeR5bcbRPak", true));
 
         RecyclerView rv = view.findViewById(R.id.recyclerViewMovies);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
