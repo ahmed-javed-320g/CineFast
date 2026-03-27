@@ -25,7 +25,6 @@ public class ComingSoonFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ArrayList<movie> movies = new ArrayList<>();
-        // Use whatever posters/images you have — these are placeholders
         movies.add(new movie("Dune: Part Three", "Sci-Fi / TBA", R.drawable.dune3,
                 "https://www.youtube.com/watch?v=3_9vCamtuPY", true));
         movies.add(new movie("Project Hail Mary", "Action / TBA", R.drawable.project_hail_mary,

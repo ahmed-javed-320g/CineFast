@@ -2,6 +2,7 @@ package com.example.a0644_a1;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -73,7 +74,7 @@ public class TicketSummaryFragment extends Fragment {
 
         tvTotal.setText(String.format("%.2f PKR", total));
 
-        // Save to SharedPreferences
+
         int numSeats = seats != null ? seats.size() : 0;
         SharedPreferences prefs = requireActivity()
                 .getSharedPreferences("CineFAST", Context.MODE_PRIVATE);
@@ -83,10 +84,44 @@ public class TicketSummaryFragment extends Fragment {
                 .putFloat("last_price", (float) total)
                 .apply();
 
+
+        StringBuilder orderSummary = new StringBuilder();
+        orderSummary.append("BOOKING DETAILS\n\n");
+        orderSummary.append("Movie: ").append(movieTitle).append("\n\n");
+        orderSummary.append("Seats:\n");
+        if (seats != null) {
+            for (String seat : seats) {
+                orderSummary.append("- ").append(seat).append(" (16 PKR)\n");
+            }
+        }
+        orderSummary.append("\nSnacks:\n");
+        if (snackNames != null) {
+            for (int i = 0; i < snackNames.size(); i++) {
+                orderSummary.append("- ").append(snackQtys.get(i)).append(" x ").append(snackNames.get(i)).append("\n");
+            }
+        }
+        orderSummary.append("\nTOTAL: ").append(String.format("%.2f PKR", total));
+
         Button btnSend = view.findViewById(R.id.btnSendTicket);
         btnSend.setOnClickListener(v -> {
-            // Keep your existing WhatsApp / email logic here
-            Toast.makeText(requireContext(), "Ticket sent!", Toast.LENGTH_SHORT).show();
+
+            String phoneNumber = "923235789789";
+            String message = Uri.encode(orderSummary.toString());
+            Intent whatsappIntent = new Intent(Intent.ACTION_VIEW);
+            whatsappIntent.setData(Uri.parse("https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + message));
+            whatsappIntent.setPackage("com.whatsapp");
+            try {
+                startActivity(whatsappIntent);
+            } catch (Exception e) {
+                Toast.makeText(requireContext(), "WhatsApp not installed or number invalid", Toast.LENGTH_LONG).show();
+            }
+
+            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            emailIntent.setType("message/rfc822");
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"ahmed.javed.320g@gmail.com"});
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Movie Ticket Booking");
+            emailIntent.putExtra(Intent.EXTRA_TEXT, orderSummary.toString());
+            startActivity(Intent.createChooser(emailIntent, "Send Ticket via Email"));
         });
     }
 
