@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -38,6 +39,12 @@
         <activity
             android:name=".onBoarding"
             android:exported="false" />
+
+        <activity android:name=".LoginActivity"
+            android:exported="false"/>
+
+        <activity android:name=".SignupActivity"
+            android:exported="false"/>
 
     </application>
 
