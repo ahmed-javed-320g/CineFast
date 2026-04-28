@@ -15,7 +15,7 @@ public class onBoarding extends AppCompatActivity {
         btngetstarted.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(onBoarding.this,MainActivity.class);
+                Intent intent = new Intent(onBoarding.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
