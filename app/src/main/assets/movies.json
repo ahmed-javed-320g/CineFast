@@ -1,0 +1,48 @@
+{
+  "now_showing": [
+    {
+      "title": "The Dark Knight",
+      "genre": "Action / 152 min",
+      "trailer_url": "https://www.youtube.com/watch?v=EXeTwQWrcwY",
+      "poster": "batman"
+    },
+    {
+      "title": "Inception",
+      "genre": "Sci-Fi / 148 min",
+      "trailer_url": "https://www.youtube.com/watch?v=YoHD9XEInc0",
+      "poster": "inception"
+    },
+    {
+      "title": "Interstellar",
+      "genre": "Sci-Fi / 169 min",
+      "trailer_url": "https://www.youtube.com/watch?v=zSWdZVtXT7E",
+      "poster": "interstellar"
+    },
+    {
+      "title": "The Shawshank Redemption",
+      "genre": "Drama / 142 min",
+      "trailer_url": "https://www.youtube.com/watch?v=PLl99DlL6b4",
+      "poster": "the_shawshank_redemption"
+    }
+  ],
+  "coming_soon": [
+    {
+      "title": "Dune: Part Three",
+      "genre": "Sci-Fi / TBA",
+      "trailer_url": "https://www.youtube.com/watch?v=3_9vCamtuPY",
+      "poster": "dune3"
+    },
+    {
+      "title": "Project Hail Mary",
+      "genre": "Action / TBA",
+      "trailer_url": "https://www.youtube.com/watch?v=m08TxIsFTRI",
+      "poster": "project_hail_mary"
+    },
+    {
+      "title": "The RIP",
+      "genre": "Drama / TBA",
+      "trailer_url": "https://www.youtube.com/watch?v=yeR5bcbRPak",
+      "poster": "the_rip"
+    }
+  ]
+}

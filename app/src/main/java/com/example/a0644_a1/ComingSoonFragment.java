@@ -24,13 +24,7 @@ public class ComingSoonFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ArrayList<movie> movies = new ArrayList<>();
-        movies.add(new movie("Dune: Part Three", "Sci-Fi / TBA", R.drawable.dune3,
-                "https://www.youtube.com/watch?v=3_9vCamtuPY", true));
-        movies.add(new movie("Project Hail Mary", "Action / TBA", R.drawable.project_hail_mary,
-                "https://www.youtube.com/watch?v=m08TxIsFTRI", true));
-        movies.add(new movie("The RIP", "Drama / TBA", R.drawable.the_rip,
-                "https://www.youtube.com/watch?v=yeR5bcbRPak", true));
+        ArrayList<movie> movies = MovieJsonHelper.loadMovies(requireContext(), "coming_soon");
 
         RecyclerView rv = view.findViewById(R.id.recyclerViewMovies);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));

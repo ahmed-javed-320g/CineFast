@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import java.util.ArrayList;
 
 public class NowShowingFragment extends Fragment {
 
@@ -24,16 +23,7 @@ public class NowShowingFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ArrayList<movie> movies = new ArrayList<>();
-        movies.add(new movie("The Dark Knight", "Action / 152 min", R.drawable.batman,
-                "https://www.youtube.com/watch?v=EXeTwQWrcwY", false));
-        movies.add(new movie("Inception", "Sci-Fi / 148 min", R.drawable.inception,
-                "https://www.youtube.com/watch?v=YoHD9XEInc0", false));
-        movies.add(new movie("Interstellar", "Sci-Fi / 169 min", R.drawable.interstellar,
-                "https://www.youtube.com/watch?v=zSWdZVtXT7E", false));
-        movies.add(new movie("The Shawshank Redemption", "Drama / 142 min",
-                R.drawable.the_shawshank_redemption,
-                "https://www.youtube.com/watch?v=PLl99DlL6b4", false));
+        ArrayList<movie> movies = MovieJsonHelper.loadMovies(requireContext(), "now_showing");
 
         RecyclerView rv = view.findViewById(R.id.recyclerViewMovies);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
