@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_movie_card"
+    android:padding="12dp"
+    android:layout_marginBottom="12dp">
+
+    <ImageView
+        android:id="@+id/IVbookingPoster"
+        android:layout_width="70dp"
+        android:layout_height="90dp"
+        android:scaleType="centerCrop"
+        android:background="#333333"
+        android:layout_centerVertical="true"/>
+
+    <LinearLayout
+        android:id="@+id/LLbookingInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/IVbookingPoster"
+        android:layout_toStartOf="@id/btnCancel"
+        android:layout_marginStart="12dp"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/TVbookingMovie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/TVbookingDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#AAAAAA"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/TVbookingTickets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#AAAAAA"
+            android:textSize="13sp"
+            android:layout_marginTop="2dp"/>
+
+        <TextView
+            android:id="@+id/TVbookingPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#E50914"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:layout_marginTop="2dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#E50914"
+        android:textSize="11sp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>
