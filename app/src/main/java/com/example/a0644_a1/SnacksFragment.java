@@ -24,11 +24,8 @@ public class SnacksFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ArrayList<snack> snacks = new ArrayList<>();
-        snacks.add(new snack("Popcorn", "Large / Buttered", 8.99, R.drawable.popcorn));
-        snacks.add(new snack("Nachos", "With Cheese Dip", 7.99, R.drawable.nachos));
-        snacks.add(new snack("Soft Drink", "Large / Any Flavor", 5.99, R.drawable.soft_drink));
-        snacks.add(new snack("Candy Mix", "Assorted Candies", 6.99, R.drawable.candy_mix));
+        SnackDatabaseHelper dbHelper = new SnackDatabaseHelper(requireContext());
+        ArrayList<snack> snacks = dbHelper.getAllSnacks();
 
         SnackAdapter adapter = new SnackAdapter(requireContext(), snacks);
         ListView listView = view.findViewById(R.id.listViewSnacks);
