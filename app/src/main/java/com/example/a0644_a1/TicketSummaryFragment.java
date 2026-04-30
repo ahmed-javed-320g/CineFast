@@ -2,7 +2,6 @@ package com.example.a0644_a1;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,7 +16,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 public class TicketSummaryFragment extends Fragment {
 
@@ -74,7 +81,7 @@ public class TicketSummaryFragment extends Fragment {
 
         tvTotal.setText(String.format("%.2f PKR", total));
 
-
+        // Save locally for "Last Booking" menu
         int numSeats = seats != null ? seats.size() : 0;
         SharedPreferences prefs = requireActivity()
                 .getSharedPreferences("CineFAST", Context.MODE_PRIVATE);
@@ -84,7 +91,10 @@ public class TicketSummaryFragment extends Fragment {
                 .putFloat("last_price", (float) total)
                 .apply();
 
+        // Save booking to Firebase
+        saveBookingToFirebase(movieTitle, movieImage, seats, total);
 
+        // Build order summary for sharing
         StringBuilder orderSummary = new StringBuilder();
         orderSummary.append("BOOKING DETAILS\n\n");
         orderSummary.append("Movie: ").append(movieTitle).append("\n\n");
@@ -97,14 +107,14 @@ public class TicketSummaryFragment extends Fragment {
         orderSummary.append("\nSnacks:\n");
         if (snackNames != null) {
             for (int i = 0; i < snackNames.size(); i++) {
-                orderSummary.append("- ").append(snackQtys.get(i)).append(" x ").append(snackNames.get(i)).append("\n");
+                orderSummary.append("- ").append(snackQtys.get(i))
+                        .append(" x ").append(snackNames.get(i)).append("\n");
             }
         }
         orderSummary.append("\nTOTAL: ").append(String.format("%.2f PKR", total));
 
         Button btnSend = view.findViewById(R.id.btnSendTicket);
         btnSend.setOnClickListener(v -> {
-
             String phoneNumber = "923235789789";
             String message = Uri.encode(orderSummary.toString());
             Intent whatsappIntent = new Intent(Intent.ACTION_VIEW);
@@ -113,7 +123,7 @@ public class TicketSummaryFragment extends Fragment {
             try {
                 startActivity(whatsappIntent);
             } catch (Exception e) {
-                Toast.makeText(requireContext(), "WhatsApp not installed or number invalid", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireContext(), "WhatsApp not installed", Toast.LENGTH_LONG).show();
             }
 
             Intent emailIntent = new Intent(Intent.ACTION_SEND);
@@ -123,6 +133,42 @@ public class TicketSummaryFragment extends Fragment {
             emailIntent.putExtra(Intent.EXTRA_TEXT, orderSummary.toString());
             startActivity(Intent.createChooser(emailIntent, "Send Ticket via Email"));
         });
+    }
+
+    private void saveBookingToFirebase(String movieTitle, int movieImage,
+                                       ArrayList<String> seats, double total) {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        if (auth.getCurrentUser() == null) return;
+        String userId = auth.getCurrentUser().getUid();
+
+        DatabaseReference bookingsRef = FirebaseDatabase.getInstance()
+                .getReference("bookings").child(userId);
+        String bookingId = bookingsRef.push().getKey();
+        if (bookingId == null) return;
+
+        String dateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+                .format(new Date());
+
+        String posterName = "";
+        try {
+            posterName = requireContext().getResources().getResourceEntryName(movieImage);
+        } catch (Exception e) {
+            posterName = "";
+        }
+
+        Map<String, Object> booking = new HashMap<>();
+        booking.put("movieName", movieTitle);
+        booking.put("moviePoster", posterName);
+        booking.put("seats", seats != null ? seats.size() : 0);
+        booking.put("totalPrice", total);
+        booking.put("dateTime", dateTime);
+        booking.put("timestamp", System.currentTimeMillis());
+
+        bookingsRef.child(bookingId).setValue(booking)
+                .addOnSuccessListener(unused ->
+                        Toast.makeText(requireContext(), "Booking saved!", Toast.LENGTH_SHORT).show())
+                .addOnFailureListener(e ->
+                        Toast.makeText(requireContext(), "Failed to save booking", Toast.LENGTH_SHORT).show());
     }
 
     private void addRow(LinearLayout parent, String label, String price) {
