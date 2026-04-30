@@ -1,13 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
-    id("com.google.gms.google-services")
+    id("com.google.gms.google-services") apply false
 }
 
 android {
     namespace = "com.example.a0644_a1"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.a0644_a1"
