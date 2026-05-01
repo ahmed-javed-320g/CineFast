@@ -146,8 +146,9 @@ public class TicketSummaryFragment extends Fragment {
         String bookingId = bookingsRef.push().getKey();
         if (bookingId == null) return;
 
+        long futureTimestamp = System.currentTimeMillis() + (24L * 60L * 60L * 1000L); // 1 day in the future
         String dateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
-                .format(new Date());
+                .format(new Date(futureTimestamp));
 
         String posterName = "";
         try {
@@ -162,7 +163,7 @@ public class TicketSummaryFragment extends Fragment {
         booking.put("seats", seats != null ? seats.size() : 0);
         booking.put("totalPrice", total);
         booking.put("dateTime", dateTime);
-        booking.put("timestamp", System.currentTimeMillis());
+        booking.put("timestamp", futureTimestamp);
 
         bookingsRef.child(bookingId).setValue(booking)
                 .addOnSuccessListener(unused ->
