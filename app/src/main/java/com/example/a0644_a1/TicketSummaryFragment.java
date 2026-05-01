@@ -141,7 +141,7 @@ public class TicketSummaryFragment extends Fragment {
         if (auth.getCurrentUser() == null) return;
         String userId = auth.getCurrentUser().getUid();
 
-        DatabaseReference bookingsRef = FirebaseDatabase.getInstance()
+        DatabaseReference bookingsRef = FirebaseDatabase.getInstance("https://cinefast-c8347-default-rtdb.firebaseio.com/")
                 .getReference("bookings").child(userId);
         String bookingId = bookingsRef.push().getKey();
         if (bookingId == null) return;

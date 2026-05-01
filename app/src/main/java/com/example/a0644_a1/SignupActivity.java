@@ -32,7 +32,7 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         mAuth = FirebaseAuth.getInstance();
-        dbRef = FirebaseDatabase.getInstance().getReference();
+        dbRef = FirebaseDatabase.getInstance("https://cinefast-c8347-default-rtdb.firebaseio.com/").getReference();
 
         etName = findViewById(R.id.ETName);
         etEmail = findViewById(R.id.ETEmail);

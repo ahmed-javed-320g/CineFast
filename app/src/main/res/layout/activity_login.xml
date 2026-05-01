@@ -1,101 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    android:padding="24dp">
+    android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/IVlogo"
-        android:layout_width="140dp"
-        android:layout_height="50dp"
-        android:src="@drawable/logo_header"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"/>
-
-    <TextView
-        android:id="@+id/TVwelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome Back"
-        android:textColor="#FFFFFF"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:layout_below="@id/IVlogo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/TILemail"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/TVwelcome"
-        android:layout_marginTop="32dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:hint="Email">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ETEmail"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/IVlogo"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo_header"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"/>
+
+        <TextView
+            android:id="@+id/TVwelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome Back"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_below="@id/IVlogo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TILemail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:textColor="#FFFFFF"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_below="@id/TVwelcome"
+            android:layout_marginTop="32dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:hint="Email"
+            app:hintTextColor="#AAAAAA"
+            app:boxStrokeColor="#E50914"
+            app:boxStrokeWidth="1dp"
+            app:placeholderTextColor="#AAAAAA">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ETEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#888888"
+                android:background="@android:color/transparent"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/TILpassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/TILemail"
-        android:layout_marginTop="16dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:hint="Password"
-        app:passwordToggleEnabled="true"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ETPassword"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TILpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:textColor="#FFFFFF"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_below="@id/TILemail"
+            android:layout_marginTop="16dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:hint="Password"
+            app:hintTextColor="#AAAAAA"
+            app:boxStrokeColor="#E50914"
+            app:boxStrokeWidth="1dp"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#AAAAAA">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ETPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#888888"
+                android:background="@android:color/transparent"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <CheckBox
-        android:id="@+id/CBrememberMe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Remember Me"
-        android:textColor="#AAAAAA"
-        android:layout_below="@id/TILpassword"
-        android:layout_marginTop="12dp"
-        android:buttonTint="#E50914"/>
+        <CheckBox
+            android:id="@+id/CBrememberMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remember Me"
+            android:textColor="#AAAAAA"
+            android:layout_below="@id/TILpassword"
+            android:layout_marginTop="12dp"
+            android:buttonTint="@color/checkbox_tint"
+            android:checked="false"/>
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:text="Login"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:backgroundTint="#E50914"
-        android:layout_below="@id/CBrememberMe"
-        android:layout_marginTop="24dp"/>
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Login"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:backgroundTint="#E50914"
+            android:layout_below="@id/CBrememberMe"
+            android:layout_marginTop="24dp"/>
 
-    <TextView
-        android:id="@+id/TVregisterLink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Don't have an account? Register Now"
-        android:textColor="#E50914"
-        android:textSize="14sp"
-        android:layout_below="@id/btnLogin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        <TextView
+            android:id="@+id/TVregisterLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't have an account? Register Now"
+            android:textColor="#E50914"
+            android:textSize="14sp"
+            android:layout_below="@id/btnLogin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"/>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="gone"/>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
 
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

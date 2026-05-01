@@ -58,7 +58,7 @@ public class MyBookingsFragment extends Fragment {
         }
 
         String userId = auth.getCurrentUser().getUid();
-        bookingsRef = FirebaseDatabase.getInstance()
+        bookingsRef = FirebaseDatabase.getInstance("https://cinefast-c8347-default-rtdb.firebaseio.com/")
                 .getReference("bookings").child(userId);
         loadBookings();
     }

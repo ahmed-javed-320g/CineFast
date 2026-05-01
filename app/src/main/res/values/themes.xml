@@ -1,5 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Base.Theme._0644_A1" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorSurface">#000000</item>
+        <item name="colorOnSurface">#FFFFFF</item>
+        <item name="colorOutline">#666666</item>
+        <item name="colorPrimary">#E50914</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
     </style>
 
     <style name="Theme._0644_A1" parent="Base.Theme._0644_A1" />
